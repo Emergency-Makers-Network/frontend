@@ -30,7 +30,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "server:dev": "nodemon 'server/src/index.ts' --exec 'ts-node' server/src/index.ts -e ts,graphql"
   },
   "eslintConfig": {
