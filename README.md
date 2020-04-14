@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Backend Script
 
-### `npm run server:dev`
+### `cd server && npm run start:dev`
 Starts a nodemon TypeScript on server/index.ts
 
 ## Frontend Scripts
