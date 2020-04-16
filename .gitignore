@@ -25,3 +25,4 @@ npm-debug.log*
 # TEAM: Feel free to edit everything below line 27 to add gitginores for your specific code editor
 *.sublime-project
 *.sublime-workspace
+settings.json
