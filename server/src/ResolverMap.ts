@@ -4,23 +4,35 @@ import { IResolvers } from 'graphql-tools';
 import { Xometry } from './integrations/Xometry';
 
 // Models
-import { PPERequest } from './models/PPERequest';
+import { Order } from './models/Order';
+import { Product } from './models/Product';
 
 const resolverMap: IResolvers = {
 	Query: {
-    	getPPERequest({id}): PPERequest {
-    		let ppe: PPERequest = {
+    	getOrder({id}): Order {
+    		let order: Order = {
     			id: 'id',
     			first_name: 'fname',
     			last_name: 'lname',
     			phone: 'phone',
-    			enmai: 'email'
+    			email: 'email',
+    			address_id: 'address_id',
+    			order_line_ids: [ '123' ]
     		};
-    		return ppe;
+    		return order;
+    	},
+    	products(): [Product] {
+    		let product: Product = {
+    			id: 'id',
+    			name: 'name',
+    			description: 'desc',
+    			image_url: 'image_url'
+    		}
+    		return [ product ];
     	}
     },
     Mutation: {
-    	setPPERequest({PPERequest}): string {
+    	setOrder({input}): string {
     		return 'id';
     	}
     }

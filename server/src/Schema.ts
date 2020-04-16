@@ -16,14 +16,15 @@ import {
 
 const typeDefs = gql`
 type Query {
-  getPPERequest(id: String!): PPERequest
+ 	getOrder(id: String!): Order
+ 	products: [Product]
 }
 
 type Mutation {
-	setPPERequest(input: PPEInput): String!
+	setOrder(input: OrderInput): String
 }
 
-type PPERequest {
+type Order {
 	id: Int!
 	created_at: DateTime!
 	updated_at: DateTime!
@@ -31,13 +32,29 @@ type PPERequest {
 	last_name: String!
 	phone: PhoneNumber!
 	email: EmailAddress!
+	address_id: String!
 }
 
-input PPEInput {
+type Product {
+	id: Int!
+	name: String!
+	description: String!
+	image_url: String!
+}
+
+type OrderLine {
+	id: Int!
+	product_id: String!
+	qty: Int!
+}
+
+input OrderInput {
 	first_name: String!
 	last_name: String!
 	phone: PhoneNumber!
 	email: EmailAddress!
+	address_id: String!
+
 }
 `;
 
