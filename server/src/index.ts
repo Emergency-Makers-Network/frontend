@@ -1,26 +1,17 @@
 // Emergency Makers Network Server
 
 import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
-import depthLimit from 'graphql-depth-limit';
-import { createServer } from 'http';
+import { ApolloServer, gql } from 'apollo-server-express';
 import compression from 'compression';
 import cors from 'cors';
-import schema from './schema';
+import schema from './Schema';
+
+const server = new ApolloServer({ schema: schema });
 
 const app = express();
-const apolloServer = new ApolloServer({
-	schema,
-	validationRules: [depthLimit(7)]
-});
+server.applyMiddleware({ app });
 
 app.use('*', cors);
 app.use(compression());
-apolloServer.applyMiddleware({ app, path: '/graphql' });
 
-const httpServer = createServer(app);
-
-httpServer.listen(
-	{port: 3000 },
-	(): void => console.log(`\n🚀 GraphQL is now running on http://localhost:3000/graphql`)
-);
+app.listen({ port: 3000 }, () => console.log(`🚀 Server ready at http://localhost:3000${server.graphqlPath}`));
