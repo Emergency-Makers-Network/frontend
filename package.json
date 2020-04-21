@@ -34,7 +34,7 @@
         "build": "react-scripts build",
         "server:dev": "nodemon 'server/src/index.ts' --exec 'ts-node' server/src/index.ts -e ts,graphql",
         "pretty:check": "prettier --check './src/**/*.ts'",
-        "pretty:fix": "prettier --write` './src/**/*.ts'",
+        "pretty:fix": "prettier --write './src/**/*.ts'",
         "lint": "eslint ./src/**/*.ts --fix"
     },
     "eslintConfig": {
