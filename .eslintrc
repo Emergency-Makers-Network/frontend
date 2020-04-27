@@ -1,9 +1,13 @@
 {
-	"parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest/globals": true
+  },
 	"extends": [
     "plugin:react/recommended",
-    "prettier/@typescript-eslint",
-		"plugin:@typescript-eslint/recommended"
+    "standard",
+    "prettier"
 	],
 	"parserOptions": {
 		"ecmaVersion": 2018,
@@ -11,8 +15,17 @@
     "ecmaFeatures": {
       "jsx":  true
     }
-	},
-	"rules": {},
+  },
+  "plugins": [
+    "react",
+    "jest",
+    "react-hooks",
+    "prettier"
+  ],
+	"rules": {
+    "react/prop-types": 0,
+    "react-hooks/exhaustive-deps": "warn"
+  },
 	"settings": {
 		"react":  {
 			"version": "detect"
