@@ -11,8 +11,13 @@ export default function NavBar() {
     return (
         <Navbar bg="dark" variant="dark">
             <LinkContainer to="/">
-                <Navbar.Brand>Vice Software</Navbar.Brand>
+                <Navbar.Brand>Emergency Makers Network</Navbar.Brand>
             </LinkContainer>
+            <Nav>
+                <LinkContainer to="/products">
+                    <Nav.Link>Products</Nav.Link>
+                </LinkContainer>
+            </Nav>
             <Nav>
                 <LinkContainer to="/users">
                     <Nav.Link>Users</Nav.Link>

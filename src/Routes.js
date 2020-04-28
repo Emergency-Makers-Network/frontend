@@ -5,12 +5,16 @@ import Home from './features/Home';
 import Authenticated from './features/Authenticated';
 import Authorized from './features/Authorized';
 import Users from './features/users';
+import Products from './features/products';
 import Settings from './features/settings';
 import SignIn from './features/SignIn';
 
 export default function Routes() {
     return (
         <Switch>
+            <PageRoute path="/products">
+                <Products />
+            </PageRoute>
             <PageRoute path="/users">
                 <Users />
             </PageRoute>

@@ -5,9 +5,11 @@ import NavBar from './widgets/NavBar';
 import Routes from './Routes';
 import './app.css';
 import NotificationPopup from './infrastructure/notificationPopup';
+import apolloClient from './apolloSetup';
+import { ApolloProvider } from '@apollo/react-hooks';
 
-function App() {
-    return (
+const App = () => (
+    <ApolloProvider client={apolloClient}>
         <Router>
             <NavBar />
             <Container className="page">
@@ -15,7 +17,7 @@ function App() {
                 <Routes />
             </Container>
         </Router>
-    );
-}
+    </ApolloProvider>
+);
 
 export default App;

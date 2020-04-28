@@ -67,7 +67,7 @@ export default function useAsync({
         noBusySpinner,
         useCaching,
         // NOTE: These were left here so that we would know not to add these back.
-        // If we add these to the depedency list then they have to be the same pointers passed
+        // If we add these to the dependency list then they have to be the same pointers passed
         // in each time which makes the useEffect api awkward for developers to work with. Leaving these
         // breaks the idiomatic rules of Redux a bit but in a valuable and safe way Please don't remove
         // this comment or change the commented out stubSucces and stubError without discussing with Ryan first
