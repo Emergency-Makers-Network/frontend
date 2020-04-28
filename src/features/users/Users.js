@@ -81,45 +81,50 @@ function Help() {
                 >
                     <Card.Subtitle className="mb-2 text-muted">useCaching</Card.Subtitle>
                     <span>
-                        doAsync takes a useCaching argument which will avoid trips to the API for data that is already
-                        in Redux. To see this:
+                        <code>doAsync</code> takes a <code>useCaching</code> argument which will avoid trips to the API
+                        for data that is already in Redux. To see this:
                         <ol>
-                            <li>go to settings page and turn on useCaching</li>
+                            <li>
+                                go to settings page and turn on <code>useCaching</code>
+                            </li>
                             <li>
                                 navigate back to the users page; the API will be called again, but the call will be
                                 recorded by the httpCache module (you can see all this happen in Redux DevTools)
                             </li>
                             <li>
                                 {' '}
-                                navigate away from users and come back; then you won&apos;t see a busy indicator as
-                                the users will now be in the redux cache and no async HTTP call is being made
+                                navigate away from users and come back; you won&apos;t see a busy indicator as the users
+                                will now be in the redux cache and no async HTTP call is being made
                             </li>
                         </ol>
                     </span>
                     <Card.Subtitle className="mb-2 text-muted">noBusySpinner</Card.Subtitle>
                     <span>
-                        doAsync also takes a noBusySpinner argument which will avoid trips to the API for data that is
-                        already in Redux. To see this
+                        <code>doAsync</code> also takes a <code>noBusySpinner</code> argument which will avoid trips to
+                        the API for data that is already in Redux. To see this:
                         <ol>
                             <li>navigate to settings page</li>
                             <li>refresh the browser on the settings page</li>
-                            <li>after the settings page reloads turn check the noBusySpinner option</li>
+                            <li>
+                                after the settings page reloads enable the <code>noBusySpinner</code> checkbox
+                            </li>
                             <li>
                                 {' '}
-                                navigate back to users page and you won&apos;t see a busy indicator while the data is
+                                navigate back to users page; you won&apos;t see a busy indicator while the data is
                                 loading
                             </li>
                             <li>
-                                repeat these steps and then quickly click the &quot;Reload with Busy Spinner&quot;
-                                which will call doAsync again but with the noBusySpinner option set to true. This will
+                                repeat these steps and then quickly click the &quot;Reload with Busy Spinner&quot; which
+                                will call <code>doAsync</code> again but with the <code>noBusySpinner</code> option set
+                                to true. This will:
                                 <ol>
                                     <li>
-                                        determine that there is already an async HTTP request in progress and not call the API
-                                        again
+                                        determine that there is already an async HTTP request in progress and{' '}
+                                        <em>not</em> call the API again
                                     </li>
                                     <li>
-                                        determine that the busyIndicator isn&apos;t being shown when in fact it should, and will
-                                        turn the busy indicator on
+                                        determine that the busyIndicator isn&apos;t being shown when in fact it should,
+                                        and will turn the busy indicator on
                                     </li>
                                 </ol>
                             </li>
@@ -129,10 +134,10 @@ function Help() {
                         NotificationPopups integration with doAsync
                     </Card.Subtitle>
                     <p>
-                        This page is configured with both a success message and an errorMessage when it calls doAsync.
-                        The successMessages causes a popup notification to be shown with a &quot;Users loaded&quot; message
-                        after users are loaded. To see this in action, disconnect from the internet and
-                        refresh the page.
+                        This page is configured with both a <code>successMessage</code> and an <code>errorMessage</code>{' '}
+                        when it calls <code>doAsync</code>. The <code>successMessage</code> displays a popup
+                        notification with a &quot;Users loaded&quot; message upon successful loading of the data. To see
+                        this in action, disconnect from the internet and refresh the page.
                     </p>
                 </div>
             </Card.Body>

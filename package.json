@@ -24,6 +24,7 @@
         "graphql-tag": "^2.10.3",
         "http": "0.0.1-security",
         "localStorage": "^1.0.4",
+        "lodash": "^4.17.15",
         "ncp": "^2.0.0",
         "react": "^16.13.1",
         "react-apollo": "^3.1.5",
@@ -38,8 +39,8 @@
         "uuid": "^7.0.3"
     },
     "scripts": {
-        "start": "npm run pretty && npm run eslint && npm run start-watch",
-        "start-watch": "concurrently --kill-others \"npm run prettier-watch\" \"npm run eslint-watch\" \"react-app-rewired start --no-cache\"",
+        "start": "HTTPS=true npm run pretty && npm run eslint && npm run start-watch",
+        "start-watch": "HTTPS=true concurrently --kill-others \"npm run prettier-watch\" \"npm run eslint-watch\" \"react-app-rewired start --no-cache\"",
         "build": "react-app-rewired build",
         "test": "react-app-rewired test",
         "pretty": "npx prettier --write \"src/**/*.js\" \"src/**/*.css\"",
