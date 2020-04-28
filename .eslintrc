@@ -22,6 +22,7 @@
     "react-hooks",
     "prettier"
   ],
+  "ignorePatterns": ["blueprint-templates/"],
 	"rules": {
     "react/prop-types": 0,
     "react-hooks/exhaustive-deps": "warn"

@@ -3,17 +3,17 @@ import { useMutation } from '@apollo/react-hooks';
 import { getAllProducts } from './products.queries';
 
 export const deleteProductMutation = gql`
-    mutation DeleteProduct($id: Number!) {
-        deleteProduct(id: $id)
+    mutation DeleteProduct($input: ProductIdInput!) {
+        deleteProduct(input: $input)
     }
 `;
 
 export const useDeleteProductMutation = () => {
-    const [deleteProduct] = useMutation(deleteProductMutation);
+    const [mutate] = useMutation(deleteProductMutation);
 
-    return (title) => {
-        return deleteProduct({
-            variables: { title },
+    return ({ id }) =>
+        mutate({
+            variables: { input: { id } },
             notifyOnNetworkStatusChange: true,
             update: (store) => {
                 const data = store.readQuery({
@@ -23,22 +23,16 @@ export const useDeleteProductMutation = () => {
                 store.writeQuery({
                     query: getAllProducts,
                     data: {
-                        products: data.products.filter((currentProduct) => currentProduct.title !== title),
+                        products: data.products.filter((currentProduct) => currentProduct.id !== id),
                     },
                 });
             },
         });
-    };
 };
 
 export const updateProductMetadataMutation = gql`
-    mutation UpdateProductMetadata($input: UpdateProductInput!) {
-        updateProductMetadata(input: $input) {
-            id
-            name
-            description
-            image_url
-        }
+    mutation UpdateProductMetadata($input: ProductInput!) {
+        updateProductMetadata(input: $input)
     }
 `;
 export const useUpdateProductMetadataMutation = () => {
@@ -46,7 +40,7 @@ export const useUpdateProductMetadataMutation = () => {
 
     return ({ id, title, name, description, imageUrl }) => {
         return mutate({
-            variables: { input: { id, title, name, description, imageUrl } },
+            variables: { input: { id, title, name, description, image_url: imageUrl } },
         });
     };
 };

@@ -5,7 +5,7 @@ import NavBar from './widgets/NavBar';
 import Routes from './Routes';
 import './app.css';
 import NotificationPopup from './infrastructure/notificationPopup';
-import apolloClient from './apolloSetup';
+import apolloClient from './apollo.client';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 const App = () => (

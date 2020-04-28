@@ -1,8 +1,8 @@
 module.exports = {
     client: {
         service: {
-            name: 'emn',
-            localSchemaFile: '../server/src/Schema.ts',
+            name: 'EmergencyMakersNetworkBackend',
+            localSchemaFile: '../backend/src/Schema.ts',
         },
     },
 };
