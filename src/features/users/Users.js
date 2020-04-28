@@ -82,23 +82,23 @@ function Help() {
                     <Card.Subtitle className="mb-2 text-muted">useCaching</Card.Subtitle>
                     <span>
                         doAsync takes a useCaching argument which will avoid trips to the API for data that is already
-                        in Redux. To see this
+                        in Redux. To see this:
                         <ol>
                             <li>go to settings page and turn on useCaching</li>
                             <li>
-                                navigate back to the users page and the API will be called again but the call will be
+                                navigate back to the users page; the API will be called again, but the call will be
                                 recorded by the httpCache module (you can see all this happen in Redux DevTools)
                             </li>
                             <li>
                                 {' '}
-                                navigate away from users and come back and then you won&apos;t see a busy indicator as
-                                the users will now be in the redux cache
+                                navigate away from users and come back; then you won&apos;t see a busy indicator as
+                                the users will now be in the redux cache and no async HTTP call is being made
                             </li>
                         </ol>
                     </span>
-                    <Card.Subtitle className="mb-2 text-muted">nBusySpinner</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">noBusySpinner</Card.Subtitle>
                     <span>
-                        doAsync takes a noBusySpinner argument which will avoid trips to the API for data that is
+                        doAsync also takes a noBusySpinner argument which will avoid trips to the API for data that is
                         already in Redux. To see this
                         <ol>
                             <li>navigate to settings page</li>
@@ -110,15 +110,15 @@ function Help() {
                                 loading
                             </li>
                             <li>
-                                repeate these steps and then quickly click the &quot;Reload with Busy Spinner&quot;
+                                repeat these steps and then quickly click the &quot;Reload with Busy Spinner&quot;
                                 which will call doAsync again but with the noBusySpinner option set to true. This will
                                 <ol>
                                     <li>
-                                        determine there is already a request in progress so it won&apos;t call the API
+                                        determine that there is already an async HTTP request in progress and not call the API
                                         again
                                     </li>
                                     <li>
-                                        determine that the busyIndicator isn&apos;t being showed but should be so will
+                                        determine that the busyIndicator isn&apos;t being shown when in fact it should, and will
                                         turn the busy indicator on
                                     </li>
                                 </ol>
@@ -130,9 +130,9 @@ function Help() {
                     </Card.Subtitle>
                     <p>
                         This page is configured with both a success message and an errorMessage when it calls doAsync.
-                        The successMessages causes a popup notification to be shown with &quot;Users loaded&quot; in it
-                        after the users load. If you want to see the errorMessage, disconnect from the internet and
-                        refresh the page. You will see that
+                        The successMessages causes a popup notification to be shown with a &quot;Users loaded&quot; message
+                        after users are loaded. To see this in action, disconnect from the internet and
+                        refresh the page.
                     </p>
                 </div>
             </Card.Body>
