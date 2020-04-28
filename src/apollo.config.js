@@ -2,7 +2,7 @@ module.exports = {
     client: {
         service: {
             name: 'emn',
-            localSchemaFile: '../server/src/Schema.ts',
+            localSchemaFile: '../backend/src/Schema.ts',
         },
     },
 };

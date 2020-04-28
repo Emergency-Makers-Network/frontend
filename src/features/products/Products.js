@@ -15,13 +15,13 @@ const Products = () => {
             </BusyIndicator>
         );
     if (!data || !data.products) return null;
-
+    const { products } = data;
     return (
         <div>
             <h2>Products</h2>
             <ul>
-                {data &&
-                    data.map((item) => (
+                {products &&
+                    products.map((item) => (
                         <li key={item.id}>
                             {item.name} <button onClick={() => refetch()}>Reload</button>
                             <button onClick={() => mutate(item.id)}>Delete</button>
