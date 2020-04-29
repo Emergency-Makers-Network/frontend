@@ -29,9 +29,11 @@ const Products = () => {
             <li key={item.id}>
               <b>({item.id})</b>: {item.name}
               <div>
-                <button onClick={() => refetch()}>Reload</button>
-                <button onClick={() => doDelete(item)}>Delete</button>
-                <UpdateMetadata product={item} />
+                <Controls
+                  product={item}
+                  reloadAction={refetch}
+                  deleteAction={doDelete}
+                />
               </div>
             </li>
           ))}
@@ -40,7 +42,7 @@ const Products = () => {
   );
 };
 
-const UpdateMetadata = ({ product }) => {
+const Controls = ({ product, reloadAction, deleteAction }) => {
   const updateMetadata = useUpdateProductMetadataMutation();
   const { name, description, imageUrl } = product;
   return (
@@ -74,8 +76,10 @@ const UpdateMetadata = ({ product }) => {
             <Field placeholder="Image URL" type="text" name="imageUrl" />
             <ErrorMessage name="imageUrl" component="div" />
             <button type="submit" disabled={isSubmitting}>
-              Submit
+              Update
             </button>
+            <button onClick={() => reloadAction()}>Reload</button>
+            <button onClick={() => deleteAction(product)}>Delete</button>
           </Form>
         )}
       </Formik>
