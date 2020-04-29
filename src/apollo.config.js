@@ -1,8 +1,10 @@
 module.exports = {
   client: {
     service: {
-      name: 'emn',
-      localSchemaFile: '../server/src/Schema.ts'
-    }
-  }
+      name: 'EmergencyMakersNetwork',
+      endpoint: {
+        url: 'http://localhost:4000',
+      },
+    },
+  },
 };
