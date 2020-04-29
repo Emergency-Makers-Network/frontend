@@ -4,9 +4,9 @@ import * as asyncActions from './products.asyncActions';
 import slice from './products.slice';
 
 export const {
-    name,
-    actions: { updateFilter },
-    reducer,
+  name,
+  actions: { updateFilter },
+  reducer,
 } = slice;
 
 export const { fetchAllProducts } = asyncActions;

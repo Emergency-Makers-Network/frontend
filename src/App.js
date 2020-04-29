@@ -9,15 +9,15 @@ import apolloClient from './apollo.client';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 const App = () => (
-    <ApolloProvider client={apolloClient}>
-        <Router>
-            <NavBar />
-            <Container className="page">
-                <NotificationPopup />
-                <Routes />
-            </Container>
-        </Router>
-    </ApolloProvider>
+  <ApolloProvider client={apolloClient}>
+    <Router>
+      <NavBar />
+      <Container className="page">
+        <NotificationPopup />
+        <Routes />
+      </Container>
+    </Router>
+  </ApolloProvider>
 );
 
 export default App;

@@ -9,12 +9,12 @@ import * as settings from './features/settings';
 import * as userContext from './features/userContext';
 
 export default combineReducers({
-    [busyIndicator.name]: busyIndicator.reducer,
-    [modal.name]: modal.reducer,
-    [pendingRequest.name]: pendingRequest.reducer,
-    [notificationPopup.name]: notificationPopup.reducer,
-    [httpCache.name]: httpCache.reducer,
-    [users.name]: users.reducer,
-    [settings.name]: settings.reducer,
-    [userContext.name]: userContext.reducer,
+  [busyIndicator.name]: busyIndicator.reducer,
+  [modal.name]: modal.reducer,
+  [pendingRequest.name]: pendingRequest.reducer,
+  [notificationPopup.name]: notificationPopup.reducer,
+  [httpCache.name]: httpCache.reducer,
+  [users.name]: users.reducer,
+  [settings.name]: settings.reducer,
+  [userContext.name]: userContext.reducer,
 });

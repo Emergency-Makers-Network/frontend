@@ -4,14 +4,14 @@ import * as asyncActions from './userContext.asynActions';
 const initialState = {};
 
 export default createSlice({
-    name: 'userContext',
-    initialState,
-    reducers: {
-        logout(state, action) {
-            return {};
-        },
+  name: 'userContext',
+  initialState,
+  reducers: {
+    logout(state, action) {
+      return {};
     },
-    extraReducers: {
-        [asyncActions.signIn.fulfilled]: (_, action) => action.payload,
-    },
+  },
+  extraReducers: {
+    [asyncActions.signIn.fulfilled]: (_, action) => action.payload,
+  },
 });

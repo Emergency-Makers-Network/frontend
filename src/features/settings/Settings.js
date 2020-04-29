@@ -7,29 +7,29 @@ import { selectAllSettings } from './settings.selectors';
 const { setUseCaching, setNoBusySpinner } = actions;
 
 export default function Settings() {
-    const settings = useSelector(selectAllSettings);
+  const settings = useSelector(selectAllSettings);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    return (
-        <div>
-            <h2>Settings</h2>
-            <Form.Group controlId="useCaching">
-                <Form.Check
-                    onChange={() => dispatch(setUseCaching(!settings.useCaching))}
-                    checked={settings.useCaching}
-                    type="checkbox"
-                    label="useCaching"
-                />
-            </Form.Group>
-            <Form.Group controlId="noBusySpinner">
-                <Form.Check
-                    onChange={() => dispatch(setNoBusySpinner(!settings.noBusySpinner))}
-                    checked={settings.noBusySpinner}
-                    type="checkbox"
-                    label="noBusySpinner"
-                />
-            </Form.Group>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Settings</h2>
+      <Form.Group controlId="useCaching">
+        <Form.Check
+          onChange={() => dispatch(setUseCaching(!settings.useCaching))}
+          checked={settings.useCaching}
+          type="checkbox"
+          label="useCaching"
+        />
+      </Form.Group>
+      <Form.Group controlId="noBusySpinner">
+        <Form.Check
+          onChange={() => dispatch(setNoBusySpinner(!settings.noBusySpinner))}
+          checked={settings.noBusySpinner}
+          type="checkbox"
+          label="noBusySpinner"
+        />
+      </Form.Group>
+    </div>
+  );
 }

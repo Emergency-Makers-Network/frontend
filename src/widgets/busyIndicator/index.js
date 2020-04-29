@@ -3,11 +3,14 @@ import BusyIndicator from './BusyIndicator';
 import slice from './busyIndicator.slice';
 
 export const {
-    name,
-    actions: { incrementBusyIndicator, decrementBusyIndicator },
-    reducer,
+  name,
+  actions: { incrementBusyIndicator, decrementBusyIndicator },
+  reducer,
 } = slice;
 
-export const { getGlobalBusyIndicator, getNamedBusyIndicator } = busyIndicatorSelectors;
+export const {
+  getGlobalBusyIndicator,
+  getNamedBusyIndicator,
+} = busyIndicatorSelectors;
 
 export default BusyIndicator;

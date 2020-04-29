@@ -4,9 +4,9 @@ import * as asyncActions from './demo.asyncActions';
 import slice from './demo.slice';
 
 export const {
-    name,
-    actions: { updateFilter },
-    reducer,
+  name,
+  actions: { updateFilter },
+  reducer,
 } = slice;
 
 export const { fetchAllDemo } = asyncActions;

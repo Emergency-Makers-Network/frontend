@@ -7,12 +7,12 @@ import { actions } from './modal.slice';
 const { useHideModal } = actions;
 
 export default function ViceModal({ children }) {
-    const show = useSelector(selectShowModal);
-    const hideModal = useHideModal();
+  const show = useSelector(selectShowModal);
+  const hideModal = useHideModal();
 
-    return (
-        <Modal show={show} onHide={hideModal}>
-            {children}
-        </Modal>
-    );
+  return (
+    <Modal show={show} onHide={hideModal}>
+      {children}
+    </Modal>
+  );
 }

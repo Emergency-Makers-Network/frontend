@@ -10,37 +10,37 @@ import Settings from './features/settings';
 import SignIn from './features/SignIn';
 
 export default function Routes() {
-    return (
-        <Switch>
-            <PageRoute path="/products">
-                <Products />
-            </PageRoute>
-            <PageRoute path="/users">
-                <Users />
-            </PageRoute>
-            <PageRoute path="/settings">
-                <Settings />
-            </PageRoute>
-            <PageRoute path="/authenticated">
-                <Authenticated />
-            </PageRoute>
-            <PageRoute path="/authorized">
-                <Authorized />
-            </PageRoute>
-            <PageRoute path="/sign-in">
-                <SignIn />
-            </PageRoute>
-            <PageRoute path="/">
-                <Home />
-            </PageRoute>
-        </Switch>
-    );
+  return (
+    <Switch>
+      <PageRoute path="/products">
+        <Products />
+      </PageRoute>
+      <PageRoute path="/users">
+        <Users />
+      </PageRoute>
+      <PageRoute path="/settings">
+        <Settings />
+      </PageRoute>
+      <PageRoute path="/authenticated">
+        <Authenticated />
+      </PageRoute>
+      <PageRoute path="/authorized">
+        <Authorized />
+      </PageRoute>
+      <PageRoute path="/sign-in">
+        <SignIn />
+      </PageRoute>
+      <PageRoute path="/">
+        <Home />
+      </PageRoute>
+    </Switch>
+  );
 }
 
 function PageRoute({ children, ...rest }) {
-    return (
-        <Route {...rest}>
-            <Page>{children}</Page>
-        </Route>
-    );
+  return (
+    <Route {...rest}>
+      <Page>{children}</Page>
+    </Route>
+  );
 }
