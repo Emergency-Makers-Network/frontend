@@ -4,32 +4,23 @@
     "es6": true,
     "jest/globals": true
   },
-	"extends": [
-    "plugin:react/recommended",
-    "standard",
-    "prettier"
-	],
-	"parserOptions": {
-		"ecmaVersion": 2018,
+  "extends": ["plugin:react/recommended", "standard", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx":  true
+      "jsx": true
     }
   },
-  "plugins": [
-    "react",
-    "jest",
-    "react-hooks",
-    "prettier"
-  ],
+  "plugins": ["react", "jest", "react-hooks", "prettier"],
   "ignorePatterns": ["blueprint-templates/"],
-	"rules": {
+  "rules": {
     "react/prop-types": 0,
     "react-hooks/exhaustive-deps": "warn"
   },
-	"settings": {
-		"react":  {
-			"version": "detect"
-		}
-	}
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
