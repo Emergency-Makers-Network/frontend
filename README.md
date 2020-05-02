@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and incorporates the Vice Software React-Redux-Hooks Boilerplate [https://github.com/vicesoftware/react-redux-hooks-boilerplate]
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and incorporates the [Vice Software React-Redux-Hooks Boilerplate](https://github.com/vicesoftware/react-redux-hooks-boilerplate)
 
 
 In the project directory, you can run:
