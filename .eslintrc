@@ -16,7 +16,8 @@
   "ignorePatterns": ["blueprint-templates/", "build"],
   "rules": {
     "react/prop-types": 0,
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "camelcase": "warn"
   },
   "settings": {
     "react": {

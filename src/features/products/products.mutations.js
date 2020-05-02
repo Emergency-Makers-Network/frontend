@@ -34,16 +34,21 @@ export const useDeleteProductMutation = () => {
 
 export const updateProductMetadataMutation = gql`
   mutation UpdateProductMetadata($input: ProductInput!) {
-    updateProductMetadata(input: $input)
+    updateProductMetadata(input: $input) {
+      id
+      name
+      description
+      image_url
+    }
   }
 `;
 export const useUpdateProductMetadataMutation = () => {
   const [mutate] = useMutation(updateProductMetadataMutation);
 
-  return ({ id, title, name, description, imageUrl }) => {
+  return ({ id, title, name, description, image_url }) => {
     return mutate({
       variables: {
-        input: { id, title, name, description, image_url: imageUrl },
+        input: { id, title, name, description, image_url },
       },
     });
   };
