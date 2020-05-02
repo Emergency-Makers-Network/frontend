@@ -6,12 +6,12 @@ export const selectSlice = (state) => state[slice.name];
 
 export const CACHE_TIMEOUT = 900000;
 
-const isExpired = (item) => {
+export const isExpired = (item) => {
   const currentTime = Date.now();
   return currentTime - item.createdAt > CACHE_TIMEOUT;
 };
 
-const getRequestCache = (state) => selectSlice(state);
+export const getRequestCache = (state) => selectSlice(state);
 
 export const tryToFindRequestInCache = (state, url, httpMethod, body) => {
   const cacheKey = buildCacheKey({ url, httpMethod });
