@@ -7,7 +7,7 @@ export const getAllProducts = gql`
       id
       name
       description
-      image_url
+      imageUrl
     }
   }
 `;

@@ -38,17 +38,17 @@ export const updateProductMetadataMutation = gql`
       id
       name
       description
-      image_url
+      imageUrl
     }
   }
 `;
 export const useUpdateProductMetadataMutation = () => {
   const [mutate] = useMutation(updateProductMetadataMutation);
 
-  return ({ id, title, name, description, image_url }) => {
+  return ({ id, title, name, description, imageUrl }) => {
     return mutate({
       variables: {
-        input: { id, title, name, description, image_url },
+        input: { id, title, name, description, imageUrl },
       },
     });
   };

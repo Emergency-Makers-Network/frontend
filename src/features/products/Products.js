@@ -44,11 +44,11 @@ const Products = () => {
 
 const Controls = ({ product, reloadAction, deleteAction }) => {
   const updateMetadata = useUpdateProductMetadataMutation();
-  const { name, description, image_url } = product;
+  const { name, description, imageUrl } = product;
   return (
     <div>
       <Formik
-        initialValues={{ name, description, image_url }}
+        initialValues={{ name, description, imageUrl }}
         validate={(values) => {
           const errors = {};
           if (!values.name) {
@@ -62,9 +62,8 @@ const Controls = ({ product, reloadAction, deleteAction }) => {
           }
           return errors;
         }}
-        onSubmit={({ name, description, image_url }, { setSubmitting }) => {
-          console.log('submitting', name, description, image_url);
-          updateMetadata({ id: product.id, name, description, image_url });
+        onSubmit={({ name, description, imageUrl }, { setSubmitting }) => {
+          updateMetadata({ id: product.id, name, description, imageUrl });
           setSubmitting(false);
         }}
       >
@@ -74,8 +73,8 @@ const Controls = ({ product, reloadAction, deleteAction }) => {
             <ErrorMessage name="name" component="div" />
             <Field placeholder="Description" type="text" name="description" />
             <ErrorMessage name="description" component="div" />
-            <Field placeholder="Image URL" type="text" name="image_url" />
-            <ErrorMessage name="image_url" component="div" />
+            <Field placeholder="Image URL" type="text" name="imageUrl" />
+            <ErrorMessage name="imageUrl" component="div" />
             <button type="submit" disabled={isSubmitting}>
               Update
             </button>
