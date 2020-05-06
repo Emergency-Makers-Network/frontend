@@ -4,7 +4,12 @@ import { getAllProducts } from './products.queries';
 
 export const deleteProductMutation = gql`
   mutation DeleteProduct($input: ProductIdInput!) {
-    deleteProduct(input: $input)
+    deleteProduct(input: $input) {
+      id
+      name
+      description
+      imageUrl
+    }
   }
 `;
 

@@ -57,8 +57,8 @@ const Controls = ({ product, reloadAction, deleteAction }) => {
           if (!values.description) {
             errors.description = 'Description is required';
           }
-          if (!values.image_url) {
-            errors.image_url = 'Image URL is required';
+          if (!values.imageUrl) {
+            errors.imageUrl = 'Image URL is required';
           }
           return errors;
         }}
