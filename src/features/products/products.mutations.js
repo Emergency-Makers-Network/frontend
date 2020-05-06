@@ -9,6 +9,7 @@ export const deleteProductMutation = gql`
       name
       description
       imageUrl
+      price
     }
   }
 `;
@@ -37,23 +38,24 @@ export const useDeleteProductMutation = () => {
     });
 };
 
-export const updateProductMetadataMutation = gql`
-  mutation UpdateProductMetadata($input: ProductInput!) {
-    updateProductMetadata(input: $input) {
+export const updateProductMutation = gql`
+  mutation UpdateProduct($input: ProductInput!) {
+    updateProduct(input: $input) {
       id
       name
       description
       imageUrl
+      price
     }
   }
 `;
-export const useUpdateProductMetadataMutation = () => {
-  const [mutate] = useMutation(updateProductMetadataMutation);
+export const useUpdateProductMutation = () => {
+  const [mutate] = useMutation(updateProductMutation);
 
-  return ({ id, title, name, description, imageUrl }) => {
+  return ({ id, title, name, description, imageUrl, price }) => {
     return mutate({
       variables: {
-        input: { id, title, name, description, imageUrl },
+        input: { id, title, name, description, imageUrl, price },
       },
     });
   };
@@ -62,6 +64,6 @@ export const useUpdateProductMetadataMutation = () => {
 export default {
   deleteProductMutation,
   useDeleteProductMutation,
-  updateProductMetadataMutation,
-  useUpdateProductMetadataMutation,
+  updateProductMutation,
+  useUpdateProductMutation,
 };

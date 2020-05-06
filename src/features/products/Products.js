@@ -2,10 +2,24 @@ import React from 'react';
 import useProductsQuery from './products.queries';
 import {
   useDeleteProductMutation,
-  useUpdateProductMetadataMutation,
+  useUpdateProductMutation,
 } from './products.mutations';
 import BusyIndicator from '../../widgets/busyIndicator';
+import { Table } from 'react-bootstrap';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+
+const FormattedDateTime = ({
+  date,
+  locale,
+  yearFormat,
+  monthFormat,
+  dayFormat,
+}) =>
+  new Intl.DateTimeFormat(locale, {
+    year: yearFormat,
+    month: monthFormat,
+    day: dayFormat,
+  }).format(new Date(date));
 
 // https://ultimatecourses.com/blog/graphql-client-side-integration-with-apollo-hooks
 const Products = () => {
@@ -23,32 +37,62 @@ const Products = () => {
   return (
     <div>
       <h2>Products</h2>
-      <ul>
-        {products &&
-          products.map((item) => (
-            <li key={item.id}>
-              <b>({item.id})</b>: {item.name}
-              <div>
-                <Controls
-                  product={item}
-                  reloadAction={refetch}
-                  deleteAction={doDelete}
-                />
-              </div>
-            </li>
-          ))}
-      </ul>
+      <Table striped hover>
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Thumbnail</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>CreatedAt</th>
+            <th>Controls</th>
+          </tr>
+          {products &&
+            products.map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>
+                  <img
+                    src={item.imageUrl}
+                    alt={item.name}
+                    style={{ width: '150px', height: '150Px' }}
+                  />
+                </td>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
+                <td>{item.price}</td>
+                <td>
+                  <FormattedDateTime
+                    date={item.createdAt}
+                    locale="en-US"
+                    yearFormat="numeric"
+                    monthFormat="long"
+                    dayFormat="2-digit"
+                  />
+                </td>
+                <td>
+                  <Controls
+                    product={item}
+                    reloadAction={refetch}
+                    deleteAction={doDelete}
+                  />
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </Table>
     </div>
   );
 };
 
 const Controls = ({ product, reloadAction, deleteAction }) => {
-  const updateMetadata = useUpdateProductMetadataMutation();
-  const { name, description, imageUrl } = product;
+  const updateMetadata = useUpdateProductMutation();
+  const { name, description, imageUrl, price } = product;
   return (
     <div>
       <Formik
-        initialValues={{ name, description, imageUrl }}
+        initialValues={{ name, description, imageUrl, price }}
         validate={(values) => {
           const errors = {};
           if (!values.name) {
@@ -60,10 +104,22 @@ const Controls = ({ product, reloadAction, deleteAction }) => {
           if (!values.imageUrl) {
             errors.imageUrl = 'Image URL is required';
           }
+          if (!values.price) {
+            errors.price = 'Price is required';
+          }
           return errors;
         }}
-        onSubmit={({ name, description, imageUrl }, { setSubmitting }) => {
-          updateMetadata({ id: product.id, name, description, imageUrl });
+        onSubmit={(
+          { name, description, imageUrl, price },
+          { setSubmitting }
+        ) => {
+          updateMetadata({
+            id: product.id,
+            name,
+            description,
+            imageUrl,
+            price,
+          });
           setSubmitting(false);
         }}
       >
@@ -71,8 +127,15 @@ const Controls = ({ product, reloadAction, deleteAction }) => {
           <Form>
             <Field placeholder="Name" type="text" name="name" />
             <ErrorMessage name="name" component="div" />
-            <Field placeholder="Description" type="text" name="description" />
+            <Field
+              placeholder="Description"
+              type="text"
+              component="textarea"
+              name="description"
+            />
             <ErrorMessage name="description" component="div" />
+            <Field placeholder="Price" type="text" name="price" />
+            <ErrorMessage name="price" component="div" />
             <Field placeholder="Image URL" type="text" name="imageUrl" />
             <ErrorMessage name="imageUrl" component="div" />
             <button type="submit" disabled={isSubmitting}>

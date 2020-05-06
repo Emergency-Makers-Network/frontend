@@ -8,6 +8,8 @@ export const getAllProducts = gql`
       name
       description
       imageUrl
+      price
+      createdAt
     }
   }
 `;
