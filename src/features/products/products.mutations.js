@@ -4,7 +4,12 @@ import { getAllProducts } from './products.queries';
 
 export const deleteProductMutation = gql`
   mutation DeleteProduct($input: ProductIdInput!) {
-    deleteProduct(input: $input)
+    deleteProduct(input: $input) {
+      id
+      name
+      description
+      imageUrl
+    }
   }
 `;
 
@@ -38,17 +43,17 @@ export const updateProductMetadataMutation = gql`
       id
       name
       description
-      image_url
+      imageUrl
     }
   }
 `;
 export const useUpdateProductMetadataMutation = () => {
   const [mutate] = useMutation(updateProductMetadataMutation);
 
-  return ({ id, title, name, description, image_url }) => {
+  return ({ id, title, name, description, imageUrl }) => {
     return mutate({
       variables: {
-        input: { id, title, name, description, image_url },
+        input: { id, title, name, description, imageUrl },
       },
     });
   };
