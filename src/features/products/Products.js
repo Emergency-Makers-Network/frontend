@@ -120,33 +120,35 @@ const Controls = ({ product, reloadAction, deleteAction }) => {
             imageUrl,
             price,
           });
+          reloadAction();
           setSubmitting(false);
         }}
       >
         {({ isSubmitting }) => (
           <Form>
-            <Field placeholder="Name" type="text" name="name" />
-            <ErrorMessage name="name" component="div" />
-            <Field
-              placeholder="Description"
-              type="text"
-              component="textarea"
-              name="description"
-            />
-            <ErrorMessage name="description" component="div" />
-            <Field placeholder="Price" type="text" name="price" />
-            <ErrorMessage name="price" component="div" />
-            <Field placeholder="Image URL" type="text" name="imageUrl" />
-            <ErrorMessage name="imageUrl" component="div" />
-            <button type="submit" disabled={isSubmitting}>
-              Update
-            </button>
-            <button type="button" onClick={() => reloadAction()}>
-              Reload
-            </button>
-            <button type="button" onClick={() => deleteAction(product)}>
-              Delete
-            </button>
+            <div>
+              <Field placeholder="Name" type="text" name="name" />
+              <ErrorMessage name="name" component="div" />
+              <Field
+                placeholder="Description"
+                type="text"
+                component="textarea"
+                name="description"
+              />
+              <ErrorMessage name="description" component="div" />
+              <Field placeholder="Price" type="text" name="price" />
+              <ErrorMessage name="price" component="div" />
+              <Field placeholder="Image URL" type="text" name="imageUrl" />
+              <ErrorMessage name="imageUrl" component="div" />
+            </div>
+            <div>
+              <button type="submit" disabled={isSubmitting}>
+                Update
+              </button>
+              <button type="button" onClick={() => deleteAction(product)}>
+                Delete
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
