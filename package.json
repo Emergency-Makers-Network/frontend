@@ -42,7 +42,7 @@
     "graphql-tag": "^2.10.3",
     "http": "0.0.1-security",
     "localStorage": "^1.0.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "ncp": "^2.0.0",
     "react": "^16.13.1",
     "react-apollo": "^3.1.5",
